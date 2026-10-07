@@ -1,6 +1,13 @@
 # Levels
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+The Habits and Tasks System app. 
+
+Gain xp by doing tasks and keeping habits. Eliminate bad habits and tasks through daily practice. 
+Identify who you want to become. Streaks, breakdowns, etc. Play with your friends. 
+
+Will be available on Android. iOS coming soon.
+
+
 
 ## Development server
 
