@@ -1,0 +1,36 @@
+<h2>Daily Habits</h2>
+
+<label for="new-habit">New Habit</label><br />
+
+<input
+  id="new-habit"
+  type="text"
+  #nameInput
+  [value]="newName()"
+  (input)="newName.set(nameInput.value)"
+  (keydown.enter)="add()"
+  /><br />
+<button type="button"
+        (click)="add()"
+        >Add habit</button>
+<p aria-live="polite">
+  {{ habitsService.doneToday() }} of {{ habitsService.habits().length }}
+</p>
+
+@if (habitsService.habits().length === 0) {
+  <p>No habits yet. Add one above</p>
+} @else {
+  <ul>
+    @for (habit of habitsService.habits(); track habit.id){
+      <li>
+        <label>
+          <input type="checkbox"
+                 [checked]="isDone(habit)"
+                 (change)="habitsService.toggleToday(habit.id)"
+                 />
+            {{ habit.name}}
+        </label>
+      </li>
+    }
+  </ul>
+}

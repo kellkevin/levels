@@ -1,0 +1,13 @@
+
+input[type='text'] {
+  border: 2px solid #555;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background: #fff;
+  color: #111;
+}
+
+input[type='text']:focus-visible {
+  outline: 3px solid #0a64d6;
+  outline-offset: 2px;
+}
