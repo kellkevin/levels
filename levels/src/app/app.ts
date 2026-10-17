@@ -1,9 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HabitList } from './habits/habit-list/habit-list';
 
 @Component({
-  imports: [RouterOutlet, HabitList],
+  imports: [HabitList],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
