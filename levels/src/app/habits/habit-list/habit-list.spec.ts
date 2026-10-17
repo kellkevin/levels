@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HabitListComponent } from './habit-list.component';
+import { HabitList } from './habit-list';
 
-describe('HabitListComponent', () => {
-  let component: HabitListComponent;
-  let fixture: ComponentFixture<HabitListComponent>;
+describe('HabitList', () => {
+  let component: HabitList;
+  let fixture: ComponentFixture<HabitList>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HabitListComponent);
+    fixture = TestBed.createComponent(HabitList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -15,4 +15,13 @@ describe('HabitListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add a habit', ()=> {
+        const fixture = TestBed.createComponent(HabitList);
+        const app = fixture.componentInstance;
+        expect(HabitList).toBeTruthy();
+  });
+
+  it('should add a habit and click for it to be done', () => {
+    });
 });
