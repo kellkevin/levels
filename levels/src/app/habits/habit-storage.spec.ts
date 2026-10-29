@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, vi } from 'vitest';
 import { HabitStorage } from './habit-storage';
+import { Habit } from './habit.model';
 
 describe('HabitStorage', () => {
   const data = new Map<string, string>();
@@ -27,10 +28,12 @@ describe('HabitStorage', () => {
   });
 
   it('round-trips saved habits', () => {
-    const habits = [{ id: '1', name: 'Stretch', completedDates: ['2026-10-25'] }];
-    storage.save(habits);
-    expect(storage.load()).toEqual(habits);
-  });
+  const habits: Habit[] = [
+    { id: '1', name: 'Stretch', kind: 'build', completedDates: ['2026-10-25'] },
+  ];
+  storage.save(habits);
+  expect(storage.load()).toEqual(habits);
+});
 
   it('falls back to an empty list on corrupt data', () => {
     localStorage.setItem('project-levels:habits', '{not json');

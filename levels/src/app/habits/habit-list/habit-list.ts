@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { HabitsService } from '../habits.service';
-import { Habit } from '../habit.model';
+import { Habit, HabitKind } from '../habit.model';
 
 @Component({
   selector: 'app-habit-list',
@@ -11,10 +11,12 @@ export class HabitList {
   protected readonly habitsService = inject(HabitsService);
   protected readonly newName = signal('');
 
+  protected readonly newKind = signal<HabitKind>('build');
+
   protected add() {
     const name = this.newName().trim();
     if (!name) return;
-    this.habitsService.add(name);
+    this.habitsService.add(name, this.newKind());
     this.newName.set('');
   }
 

@@ -1,6 +1,6 @@
 // habits.service.ts
 import { Service, inject, signal, computed } from '@angular/core';
-import { Habit } from './habit.model';
+import { Habit, HabitKind } from './habit.model';
 import { HabitStorage } from './habit-storage';
 import { localDateKey } from './date';
 
@@ -21,10 +21,10 @@ export class HabitsService {
     return localDateKey(); 
   }
 
-  add(name: string) {
+  add(name: string, kind: HabitKind = 'build') {
     this.habits.update(list => [
       ...list,
-      { id: crypto.randomUUID(), name, completedDates: [] },
+      { id: crypto.randomUUID(), name, completedDates: [],  kind },
     ]);
     this.persist();
   }

@@ -10,6 +10,26 @@
   (input)="newName.set(nameInput.value)"
   (keydown.enter)="add()"
   /><br />
+<label>
+<input type="radio"
+  id="habit-kind"
+  #kindInput
+  [value]='newKind()'
+ [checked]="newKind() === 'build'" (change)="newKind.set('build')" 
+  name="kind"
+
+  /> Good
+  </label>
+<label>
+  <input type="radio"
+  id="habit-kind"
+  #kindInput
+  [value]='newKind()'
+  [checked]="newKind() === 'quit'" (change)="newKind.set('quit')" 
+  label="bad"
+  name="kind"
+  />bad
+  </label>
 <button type="button"
         (click)="add()"
         >Add habit</button>
@@ -29,6 +49,7 @@
                  (change)="habitsService.toggleToday(habit.id)"
                  />
             {{ habit.name}}
+            {{ habit.kind}}
         </label>
       </li>
     }
